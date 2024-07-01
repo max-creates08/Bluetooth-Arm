@@ -7,7 +7,7 @@
 
 
 
-<img src="Maksim_R_1.jpg" alt="Headstone Image" width="100" height="100">
+<img src="logo.svg" alt="Headstone Image" width="100">
 
 # Starter Project
 
