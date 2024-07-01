@@ -6,8 +6,8 @@
 | Maksim R | Pinnacle High School | Mechincal Engineering | Incoming Junior
 
 
-![Headstone Image](Maksim R (1).jpg =250x250)
 
+![Headstone Image](Maksim R (1).jpg | width=100)
 # Starter Project
 
 
