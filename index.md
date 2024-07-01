@@ -7,7 +7,8 @@
 
 
 
-![Headstone Image](Maksim R (1).jpg | width=100)
+<img src="Maksim_R_1.jpg" alt="Headstone Image" width="100" height="100">
+
 # Starter Project
 
 
