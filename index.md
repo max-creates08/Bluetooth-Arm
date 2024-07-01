@@ -20,10 +20,9 @@ Overview
 - I created a Light Emitting Diode that is controlled by a board
 - It has 5 parts: 1 LED, 3 sliders, 1 PCB
 - Soldering with different soldering iron
-  
-Summary
 
-Light-emitting diodes work by having three smaller lights inside. One red, one blue, and one green. Each light is controlled via voltage to control its brightness. Together, this creates a light that can be any color. In this project, the user controls the light via sliders.   
+Summary
+- Light-emitting diodes work by having three smaller lights inside. One red, one blue, and one green. Each light is controlled via voltage to control its brightness. Together, this creates a light that can be any color. In this project, the user controls the light via sliders.   
 
 <!--- 
 # Final Milestone
