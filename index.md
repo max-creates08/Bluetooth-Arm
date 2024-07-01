@@ -12,7 +12,7 @@ You should comment out all portions of your portfolio that you have not complete
 | Maksim R | Pinnacle High School | Mechincal Engineering | Incoming Junior
 
 
-![Headstone Image](Maksim R.HEIC)
+![Headstone Image](Maksim R (1).jpg)
 
 # Starter Project
 
