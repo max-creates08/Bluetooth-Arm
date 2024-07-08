@@ -57,17 +57,18 @@ For your second milestone, explain what you've worked on since your previous mil
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pl3rsx-9awk?si=rAK55ilik1rxmmjO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
+For my first milestone, I have a working prototype of a robotic arm powered by my Macbook and a 7.5 power supply. Which powered the Arduino Nano(the Brains) that controlled the 4 servos (Yaw, Arm, Wrist, Claw). The joystick input was measured by the Nano, and a new angle for the servos. The biggest challenge was powering the arm, the servos could draw .5 Amps causing the whole thing to shut down. Furthermore, the servos all had to be replaced as they were very weak.
+- Full control of base movement
+- Full control of Arm movement
+- Full control of Wrist movement
+- Full control of Claw movement
+- For my next milestone I want to have full Bluetooth Control using an HM-10 
 
 # Schematics 
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
+<img src="Maksim R (1).jpg" alt="Headstone Image" width="300">. 
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
+
 
 c++
 #include <Servo.h>
@@ -101,8 +102,8 @@ void loop(){
   int RY = process_joystick(analogRead(A3));
   yaw.write(yaw.read()+ LX);
   base.write(base.read() + LY);
-  wrist.write(base.read()+ RX);
-  claw.write(base.read()+ RY);
+  wrist.write(wrist.read()+ RX);
+  claw.write(claw.read()+ RY);
   delay(30);
 }
 ```
