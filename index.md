@@ -65,7 +65,7 @@ For my first milestone, I have a working prototype of a robotic arm powered by m
 - For my next milestone I want to have full Bluetooth Control using an HM-10 
 
 # Schematics 
-<img src="Maksim R (1).jpg" alt="Headstone Image" width="300">. 
+<img src="schematics.png" alt="Sechmatic 1" width="300">. 
 
 # Code
 
