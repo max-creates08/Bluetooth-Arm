@@ -57,15 +57,17 @@ For your second milestone, explain what you've worked on since your previous mil
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pl3rsx-9awk?si=rAK55ilik1rxmmjO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For my first milestone, I have a working prototype of a robotic arm powered by my Macbook and a 7.5 power supply. Which powered the Arduino Nano(the Brains) that controlled the 4 servos (Yaw, Arm, Wrist, Claw). The joystick input was measured by the Nano, and a new angle for the servos. The biggest challenge was powering the arm, the servos could draw .5 Amps causing the whole thing to shut down. Furthermore, the servos all had to be replaced as they were very weak.
+For my first milestone, I have a working prototype of a robotic arm powered by my Macbook and a 7.5 power supply. Which powered the Arduino Nano(the Brains) that controlled the 4 servos (Yaw, Arm, Wrist, Claw). The joystick input was measured by the Nano and a new angle for the servos. The biggest challenge was powering the arm, the servos could draw .5 Amps causing the whole thing to shut down. Furthermore, the servos had to be replaced as they were very weak.
 - Full control of base movement
 - Full control of Arm movement
 - Full control of Wrist movement
 - Full control of Claw movement
-- For my next milestone I want to have full Bluetooth Control using an HM-10 
+- For my next milestone, I want to have full Bluetooth Control using an HM-10 
 
 # Schematics 
-<img src="schematics.png" alt="Sechmatic 1" width="300">. 
+<img src="schematics.png" alt="Sechmatic 1" width="300">
+<img src="schematics1.png" alt="Sechmatic 1" width="300">
+<img src="schematics2.png" alt="Sechmatic 1" width="300">
 
 # Code
 
