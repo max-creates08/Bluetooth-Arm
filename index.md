@@ -70,7 +70,7 @@ For my first milestone, I have a working prototype of a robotic arm powered by m
 # Code
 
 
-c++
+```c++
 #include <Servo.h>
 
 Servo yaw;
