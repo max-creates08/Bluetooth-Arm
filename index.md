@@ -50,12 +50,12 @@ For your second milestone, explain what you've worked on since your previous mil
 - What has been surprising about the project so far
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone 
-
+-->
 # First Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pl3rsx-9awk?si=rAK55ilik1rxmmjO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 For your first milestone, describe what your project is and how you plan to build it. You can include:
 - An explanation about the different components of your project and how they will all integrate together
@@ -70,15 +70,40 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
+#include <Servo.h>
+
+Servo yaw;
+Servo base;
+Servo wrist;
+Servo claw;
+
+void setup(){
+    yaw.attach(4);
+    base.attach(5);
+    wrist.attach(6);
+    claw.attach(7);
+    Serial.begin(9600);
+} 
+
+int process_joystick(int reading){
+  int new_reading = reading / 100;
+  new_reading  = new_reading - 5;
+  if (new_reading >= -2 && new_reading <= 2){
+    new_reading = 0;
+  }
+  return new_reading;
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-
+void loop(){
+  int LX = process_joystick(analogRead(A0));
+  int LY = process_joystick(analogRead(A1));
+  int RX = process_joystick(analogRead(A2));
+  int RY = process_joystick(analogRead(A3));
+  yaw.write(yaw.read()+ LX);
+  base.write(base.read() + LY);
+  wrist.write(base.read()+ RX);
+  claw.write(base.read()+ RY);
+  delay(30);
 }
 ```
 
@@ -98,4 +123,4 @@ One of the best parts about Github is that you can view how other people set up 
 - [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
 
-To watch the BSE tutorial on how to create a portfolio, click here. -->
+To watch the BSE tutorial on how to create a portfolio, click here. 
