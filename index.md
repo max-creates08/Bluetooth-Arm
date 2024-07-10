@@ -226,17 +226,15 @@ void loop(){
 ## Summary
 - Light-emitting diodes work by having three smaller lights inside. One red, one blue, and one green. Each light is controlled via voltage to control its brightness. Together, this creates a light that can be any color. In this project, the user controls the light via sliders.  
 
-<!--- 
+
 # Bill of Materials
-Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
-Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
 | Robotic Arm Kit | Robotic Arm | $50 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/LK-COKOINO-Compliment-Engineering-Technology/dp/B081FG1JQ1)"> Link </a> |
 | HM-10 | Bluethooth Chip | $12 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/DSD-TECH-Bluetooth-iBeacon-Arduino/dp/B06WGZB2N4/ref=sr_1_1_sspa?crid=51SK7AJULZ6M&dib=eyJ2IjoiMSJ9.1ybVTZJyEtfPa6-bhIJc5WwymCqDa2jd9NGBJSgWHopVAR4JNebELBT2Sahzs7jA_P1KaFUkJ46G8EFQBtkCLxJmA1fU4o7yPhfIZsx2_5YzDu6lOACCFlDKc5sRXGdW5Fz90i0mPfp78UnlCkO5Z-m8RrwN6meDluYiDwo1_xwaDWQOXgEeq5GbI6JJ3_SXWmD2PKywq9YutyXmLfgR4-Znn-jHZHjzSKZCA5BCF5565w8skNJa7J2AFYrAr3_3wEUQ_9Ux5QkHzDiGVETXkXMavtT_m4Fs0q4A45SrE6A.VjdXPKAgQtWYIYjGuS2HWLNkD6K_sPkY5zXz7juO0vU&dib_tag=se&keywords=hm-10&qid=1720629779&sprefix=hm-10%2Caps%2C122&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1)"> Link </a> |
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-
+<!--- 
 # Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
 - [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
