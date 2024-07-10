@@ -231,7 +231,7 @@ void loop(){
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Robotic Arm Kit | Robotic Arm | $50 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/LK-COKOINO-Compliment-Engineering-Technology/dp/B081FG1JQ1)"> Link </a> |
+| Robotic Arm Kit | Robotic Arm | $50 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/LK-COKOINO-Compliment-Engineering-Technology/dp/B081FG1JQ1](https://a.co/d/0bWnpzMt)"> Link </a> |
 | HM-10 | Bluethooth Chip | $12 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/DSD-TECH-Bluetooth-iBeacon-Arduino/dp/B06WGZB2N4/ref=sr_1_1_sspa?crid=51SK7AJULZ6M&dib=eyJ2IjoiMSJ9.1ybVTZJyEtfPa6-bhIJc5WwymCqDa2jd9NGBJSgWHopVAR4JNebELBT2Sahzs7jA_P1KaFUkJ46G8EFQBtkCLxJmA1fU4o7yPhfIZsx2_5YzDu6lOACCFlDKc5sRXGdW5Fz90i0mPfp78UnlCkO5Z-m8RrwN6meDluYiDwo1_xwaDWQOXgEeq5GbI6JJ3_SXWmD2PKywq9YutyXmLfgR4-Znn-jHZHjzSKZCA5BCF5565w8skNJa7J2AFYrAr3_3wEUQ_9Ux5QkHzDiGVETXkXMavtT_m4Fs0q4A45SrE6A.VjdXPKAgQtWYIYjGuS2HWLNkD6K_sPkY5zXz7juO0vU&dib_tag=se&keywords=hm-10&qid=1720629779&sprefix=hm-10%2Caps%2C122&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1)"> Link </a> |
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 <!--- 
