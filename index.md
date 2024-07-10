@@ -37,32 +37,27 @@ For your final milestone, explain the outcome of your project. Key details to in
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE
 
-
+-->
 
 # Second Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5vV-AcF4DRU?si=Ut-Z7bL2yFteAWOz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+For my second milestone, I added Bluetooth control using an HM-10 and a Bluetooth terminal app called BluetoothLE.
 - Technical details of what you've accomplished and how they contribute to the final goal
 - What has been surprising about the project so far
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone 
--->
+
 # First Milestone
 
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pl3rsx-9awk?si=rAK55ilik1rxmmjO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For my first milestone, I have a working prototype of a robotic arm powered by my Macbook and a 7.5 power supply. Which powered the Arduino Nano(the Brains) that controlled the 4 servos (Yaw, Arm, Wrist, Claw). The joystick input was measured by the Nano and a new angle for the servos. The biggest challenge was powering the arm, the servos could draw .5 Amps causing the whole thing to shut down. Furthermore, the servos had to be replaced as they were very weak.
-- Full control of base movement
-- Full control of Arm movement
-- Full control of Wrist movement
-- Full control of Claw movement
-- For my next milestone, I want to have full Bluetooth Control using an HM-10 
+For my first milestone, I have a working prototype of a robotic arm powered by my MacBook and a 7.5V power supply, which powered the Arduino Nano (the Brains) that controlled the four servos (Yaw, Arm, Wrist, Claw). The Nano and a new angle for the servos measured the joystick input. The biggest challenge was powering the arm, as the servos could draw 0.5 amps, causing the whole system to shut down. Additionally, the servos had to be replaced as they were very weak. I fully controlled the base, arm, wrist, and claw movements. For my next milestone, I want to have full Bluetooth control using an HM-10. 
 
 # Schematics 
 <img src="schematics.png" alt="Sechmatic 1" width="300">
