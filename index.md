@@ -167,6 +167,8 @@ void loop() {
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pl3rsx-9awk?si=rAK55ilik1rxmmjO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+# Summary
+
   For my first milestone, I have a working prototype of a robotic arm powered by my MacBook and a 7.5V power supply, which powered the Arduino Nano (the Brains) that controlled the four servos (Yaw, Arm, Wrist, Claw). The Nano and a new angle for the servos measured the joystick input. The biggest challenge was powering the arm, as the servos could draw 0.5 amps, causing the whole system to shut down. Additionally, the servos had to be replaced as they were very weak. I fully controlled the base, arm, wrist, and claw movements. For my next milestone, I want complete Bluetooth control using an HM-10. 
 
 # Schematics 
