@@ -45,8 +45,10 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5vV-AcF4DRU?si=Ut-Z7bL2yFteAWOz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+
 For my second milestone, I added Bluetooth control using an HM-10 and a Bluetooth terminal app called BluetoothLE. In the app, I preprogrammed buttons to send commands to the Bluetooth chip for easier control. To be able to control the robot via Bluetooth, I had to alter my code quite a lot. I plugged the Bluetooth chip into the expansion board that came in the kit to power it. At first, when implementing Bluetooth, I had issues with having stable movements from the servos. I switched the base servo to a higher torque model to fix this issue. For my final milestone, I will construct a robot car that can also be controlled via Bluetooth. I plan on making the arm & car one for the final result.
 
+# Code
 ```c++
 <Servo.h>
 #include <SoftwareSerial.h>
