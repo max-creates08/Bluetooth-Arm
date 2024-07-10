@@ -45,6 +45,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5vV-AcF4DRU?si=Ut-Z7bL2yFteAWOz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+# Summary
 
   For my second milestone, I added Bluetooth control using an HM-10 and a Bluetooth terminal app called BluetoothLE. In the app, I preprogrammed buttons to send commands to the Bluetooth chip for easier control. I had to alter my code quite a lot to control the robot via Bluetooth. I plugged the Bluetooth chip into the expansion board that came in the kit to power it. At first, when implementing Bluetooth, I had issues with having stable movements from the servos. I switched the base servo to a higher torque model to fix this issue. For my final milestone, I will construct a robot car that can also be controlled via Bluetooth. I plan on making the arm & car one for the final result.
 
@@ -213,7 +214,7 @@ void loop(){
   delay(30);
 }
 ```
-
+```
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
 Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
