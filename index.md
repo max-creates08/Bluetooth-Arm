@@ -45,19 +45,121 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5vV-AcF4DRU?si=Ut-Z7bL2yFteAWOz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For my second milestone, I added Bluetooth control using an HM-10 and a Bluetooth terminal app called BluetoothLE.
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
+For my second milestone, I added Bluetooth control using an HM-10 and a Bluetooth terminal app called BluetoothLE. In the app, I preprogrammed buttons to send commands to the Bluetooth chip for easier control. To be able to control the robot via Bluetooth, I had to alter my code quite a lot. I plugged the Bluetooth chip into the expansion board that came in the kit to power it. At first, when implementing Bluetooth, I had issues with having stable movements from the servos. I switched the base servo to a higher torque model to fix this issue. For my final milestone, I will construct a robot car that can also be controlled via Bluetooth. I plan on making the arm & car one for the final result.
 
+```c++
+<Servo.h>
+#include <SoftwareSerial.h>
+
+// Define servo objects
+Servo yawServo;
+Servo baseServo;
+Servo wristServo;
+Servo clawServo;
+
+// Define servo pins
+const int yawPin = 4; 
+const int basePin = 5;
+const int wristPin = 6;
+const int clawPin = 7;
+
+// Create SoftwareSerial object for Bluetooth
+SoftwareSerial BTSerial(2, 3); // RX, TX
+
+void setup() {
+  yawServo.attach(yawPin);
+  baseServo.attach(basePin);
+  wristServo.attach(wristPin);
+  clawServo.attach(clawPin);
+  
+  // Initialize servo positions
+  yawServo.write(90);   // Initial position for yaw servo
+  baseServo.write(90);  // Initial position for base servo
+  wristServo.write(90); // Initial position for wrist servo
+  clawServo.write(0);   // Initial position for claw servo
+
+  // Begin serial communication
+  Serial.begin(9600);  
+  BTSerial.begin(9600);  
+
+  Serial.println("Send 'o' to open, 'c' to close the claw, 's' to move yaw right, 't' to move yaw left, 'a' to move base up, 'b' to move base down, 'u' to move wrist up, and 'd' to move wrist down.");
+}
+
+void loop() {
+  if (BTSerial.available()) {  // Check if there's any data available on the Bluetooth serial port
+    char command = BTSerial.read();  // Read the incoming byte
+
+    // Print the received command to the Serial Monitor
+    Serial.print("Received command: ");
+    Serial.println(command);
+
+    if (command == 'o') {
+      clawServo.write(100);  // Move the claw servo to 100 degrees
+      Serial.println("Claw servo opened.");
+    } else if (command == 'c') {
+      clawServo.write(0);  // Move the claw servo to 0 degrees
+      Serial.println("Claw servo closed.");
+    } else if (command == 's') {
+      int newYawPosition = yawServo.read() + 10; // Increase the yaw position by 10 degrees
+      if (newYawPosition > 180) {
+        newYawPosition = 180; // Limit to max 180 degrees
+      }
+      yawServo.write(newYawPosition);  // Move the yaw servo to the new position
+      Serial.print("Yaw servo moved to ");
+      Serial.println(newYawPosition);
+    } else if (command == 't') {
+      int newYawPosition = yawServo.read() - 10; // Decrease the yaw position by 10 degrees
+      if (newYawPosition < 0) {
+        newYawPosition = 0; // Limit to min 0 degrees
+      }
+      yawServo.write(newYawPosition);  // Move the yaw servo to the new position
+      Serial.print("Yaw servo moved to ");
+      Serial.println(newYawPosition);
+    } else if (command == 'a') {
+      int newBasePosition = baseServo.read() + 5; // Increase the base position by 5 degrees
+      if (newBasePosition > 180) {
+        newBasePosition = 180; // Limit to max 180 degrees
+      }
+      baseServo.write(newBasePosition);  // Move the base servo to the new position
+      Serial.print("Base servo moved to ");
+      Serial.println(newBasePosition);
+    } else if (command == 'b') {
+      int newBasePosition = baseServo.read() - 5; // Decrease the base position by 5 degrees
+      if (newBasePosition < 0) {
+        newBasePosition = 0; // Limit to min 0 degrees
+      }
+      baseServo.write(newBasePosition);  // Move the base servo to the new position
+      Serial.print("Base servo moved to ");
+      Serial.println(newBasePosition);
+    } else if (command == 'u') {
+      int newWristPosition = wristServo.read() + 5 // Increase the wrist position by 5 degrees
+      if (newWristPosition > 180) {
+        newWristPosition = 180; // Limit to max 180 degrees
+      }
+      wristServo.write(newWristPosition);  // Move the wrist servo to the new position
+      Serial.print("Wrist servo moved to ");
+      Serial.println(newWristPosition);
+    } else if (command == 'd') {
+      int newWristPosition = wristServo.read() - 5; // Decrease the wrist position by 5 degrees
+      if (newWristPosition < 0) {
+        newWristPosition = 0; // Limit to min 0 degrees
+      }
+      wristServo.write(newWristPosition);  // Move the wrist servo to the new position
+      Serial.print("Wrist servo moved to ");
+      Serial.println(newWristPosition);  
+    } else {
+      Serial.println("Unknown command. Send 'o' to open or 'c' to close the claw, 's' to move yaw right, 't' to move yaw left, 'a' to move base up, 'b' to move base down, 'u' to move wrist up, and 'd' to move wrist down.");
+    }
+  }
+}
+```
 # First Milestone
 
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pl3rsx-9awk?si=rAK55ilik1rxmmjO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For my first milestone, I have a working prototype of a robotic arm powered by my MacBook and a 7.5V power supply, which powered the Arduino Nano (the Brains) that controlled the four servos (Yaw, Arm, Wrist, Claw). The Nano and a new angle for the servos measured the joystick input. The biggest challenge was powering the arm, as the servos could draw 0.5 amps, causing the whole system to shut down. Additionally, the servos had to be replaced as they were very weak. I fully controlled the base, arm, wrist, and claw movements. For my next milestone, I want to have full Bluetooth control using an HM-10. 
+For my first milestone, I have a working prototype of a robotic arm powered by my MacBook and a 7.5V power supply, which powered the Arduino Nano (the Brains) that controlled the four servos (Yaw, Arm, Wrist, Claw). The Nano and a new angle for the servos measured the joystick input. The biggest challenge was powering the arm, as the servos could draw 0.5 amps, causing the whole system to shut down. Additionally, the servos had to be replaced as they were very weak. I fully controlled the base, arm, wrist, and claw movements. For my next milestone, I want complete Bluetooth control using an HM-10. 
 
 # Schematics 
 <img src="schematics.png" alt="Sechmatic 1" width="300">
