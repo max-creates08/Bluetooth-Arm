@@ -61,7 +61,7 @@ For my first milestone, I have a working prototype of a robotic arm powered by m
 
 # Schematics 
 <img src="schematics.png" alt="Sechmatic 1" width="300">
-<img src="schematics1.png" alt="Sechmatic 2" width="300">
+<img src="schematics 1.png" alt="Sechmatic 2" width="300">
 <img src="schematics2.png" alt="Sechmatic 3" width="300">
 
 # Code
