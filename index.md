@@ -43,7 +43,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ## Schematics 
 
-<img src="519hwG-YajL._AC_SX679_.jpg" alt="Headstone Image" width="300">
+<img src="L298N-schematic.jpg" alt="Headstone Image" width="300">
 
 
 ## Code
