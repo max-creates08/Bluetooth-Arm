@@ -35,11 +35,10 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ## Summary
 
-  For my third milestone, I added Bluetooth control using an HM-10 and a Bluetooth terminal app called BluetoothLE. In the app, I preprogrammed buttons to send commands to the Bluetooth chip for easier control. I plugged the Bluetooth chip into the expansion board that came in the kit to power it.
-
+  For my third milestone, I added four wheel drive to my robotic arm. Enabling the arm to travel in any setting. Furthermore I tested teh range to be up to 50+ feet with no obstructions, and the robot is all terain (no water). Addtionally I added underglow to my robot to add astethic looks to it. The motor driver to control the motors is powered by 6 AA batteries and addtioanlly power the underglow LEDs and the motors.
 ## Complications 
 
-  I had to alter my code to control the robot via Bluetooth significantly. Initially, I faced issues with maintaining stable movements from the servos. I switched the base servo to a higher torque model to fix this. For my final milestone, I will construct a robot car that can also be controlled via Bluetooth, aiming to integrate the arm and car into one cohesive unit.
+  I had to alter my code to control the motors via Bluetooth significantly. Initially, I faced issues with maintaining connection. I changed my pins for my motor's pins. For my final milestone, I will add ultrasonic sensor for partial crash detection.
 
 ## Schematics 
 
