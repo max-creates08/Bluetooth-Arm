@@ -3,7 +3,7 @@
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Maksim R | Pinnacle High School | Mechincal Engineering | Incoming Junior
+| Maksim R | Pinnacle High School | Mechanical Engineering | Incoming Junior
 
 
 
