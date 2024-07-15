@@ -1,4 +1,4 @@
-# Bluethooth Arm Controlled by iPhone
+# Robotic Car Arm Controlled by iPhone
 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
