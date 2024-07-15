@@ -27,7 +27,290 @@ For my final milestone I added an ultrasonic sensor. This will allow the car to 
 
 At times when the robot is moving the motor will work for 1-2 seconds and stop moving. After further troubleshotting i fugired out it is to do with the conectors for the ultrasonic sensor becoming loose; creating improper sensory data and making the robot belive there is something front of it. To fix this I choose pins that are less likely to become loose and added a breadboard.
 
+## Code
+```c++
+#include <Servo.h>
+#include <SoftwareSerial.h>
 
+// Define servo objects
+Servo yawServo;
+Servo baseServo;
+Servo wristServo;
+Servo clawServo;
+
+// Define servo pins
+const int yawPin = 4; 
+const int basePin = 5;
+const int wristPin = 6;
+const int clawPin = 7;
+
+// Motor control pins
+const int motor1Pin1 = 10;  // Motor 1 direction pin 1
+const int motor1Pin2 = 11;  // Motor 1 direction pin 2
+const int motor2Pin1 = A2;  // Motor 2 direction pin 1
+const int motor2Pin2 = A3;  // Motor 2 direction pin 2
+const int motor1Enable = A0; // Motor 1 enable pin
+const int motor2Enable = A1; // Motor 2 enable pin
+
+// Ultrasonic sensor pins
+const int trigPin = 13;
+const int echoPin = 12;
+
+// Create SoftwareSerial object for Bluetooth
+SoftwareSerial BTSerial(2, 3); // RX, TX
+
+// Variable to track claw state
+bool clawOpen = false;
+int motorSpeed = 255; // Full speed by default
+
+// Variable to track motor states
+bool movingForward = false;
+bool movingBackward = false;
+bool movingLeft = false;
+bool movingRight = false;
+
+void setup() {
+  yawServo.attach(yawPin);
+  baseServo.attach(basePin);
+  wristServo.attach(wristPin);
+  clawServo.attach(clawPin);
+  
+  // Initialize servo positions
+  yawServo.write(90);   // Initial position for yaw servo
+  baseServo.write(90);  // Initial position for base servo
+  wristServo.write(90); // Initial position for wrist servo
+  clawServo.write(0);   // Initial position for claw servo (closed)
+
+  // Set motor control pins as outputs
+  pinMode(motor1Pin1, OUTPUT);
+  pinMode(motor1Pin2, OUTPUT);
+  pinMode(motor2Pin1, OUTPUT);
+  pinMode(motor2Pin2, OUTPUT);
+  pinMode(motor1Enable, OUTPUT);
+  pinMode(motor2Enable, OUTPUT);
+  
+  // Ultrasonic sensor pins
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  // Begin serial communication
+  Serial.begin(9600);  
+  BTSerial.begin(9600);  
+
+  Serial.println("Send 'o' to open, 'c' to close the claw, 's' to move yaw right, 't' to move yaw left, 'a' to move base up, 'b' to move base down, 'u' to move wrist up, 'd' to move wrist down, '1' to move forward, '2' to move backward, '3' to move left, '4' to move right, '6' to increase speed, '7' to decrease speed.");
+}
+
+void moveForward() {
+  digitalWrite(motor1Pin1, HIGH);
+  digitalWrite(motor1Pin2, LOW);
+  digitalWrite(motor2Pin1, HIGH);
+  digitalWrite(motor2Pin2, LOW);
+  analogWrite(motor1Enable, motorSpeed);
+  analogWrite(motor2Enable, motorSpeed);
+  movingForward = true;
+}
+
+void moveBackward() {
+  digitalWrite(motor1Pin1, LOW);
+  digitalWrite(motor1Pin2, HIGH);
+  digitalWrite(motor2Pin1, LOW);
+  digitalWrite(motor2Pin2, HIGH);
+  analogWrite(motor1Enable, motorSpeed);
+  analogWrite(motor2Enable, motorSpeed);
+  movingBackward = true;
+}
+
+void moveLeft() {
+  digitalWrite(motor1Pin1, HIGH);
+  digitalWrite(motor1Pin2, LOW);
+  digitalWrite(motor2Pin1, LOW);
+  digitalWrite(motor2Pin2, HIGH);
+  analogWrite(motor1Enable, motorSpeed);
+  analogWrite(motor2Enable, motorSpeed);
+  movingLeft = true;
+}
+
+void moveRight() {
+  digitalWrite(motor1Pin1, LOW);
+  digitalWrite(motor1Pin2, HIGH);
+  digitalWrite(motor2Pin1, HIGH);
+  digitalWrite(motor2Pin2, LOW);
+  analogWrite(motor1Enable, motorSpeed);
+  analogWrite(motor2Enable, motorSpeed);
+  movingRight = true;
+}
+
+void stopMotors() {
+  digitalWrite(motor1Pin1, LOW);
+  digitalWrite(motor1Pin2, LOW);
+  digitalWrite(motor2Pin1, LOW);
+  digitalWrite(motor2Pin2, LOW);
+  analogWrite(motor1Enable, 0);
+  analogWrite(motor2Enable, 0);
+  movingForward = false;
+  movingBackward = false;
+  movingLeft = false;
+  movingRight = false;
+}
+
+void toggleClaw() {
+  if (clawOpen) {
+    clawServo.write(0);  // Close the claw
+    Serial.println("Claw servo closed.");
+  } else {
+    clawServo.write(100);  // Open the claw
+    Serial.println("Claw servo opened.");
+  }
+  clawOpen = !clawOpen;  // Toggle claw state
+}
+
+void increaseSpeed() {
+  motorSpeed += 51; // Increase speed by 20%
+  if (motorSpeed > 255) {
+    motorSpeed = 255; // Max speed
+  }
+  Serial.print("Motor speed increased to ");
+  Serial.println(motorSpeed);
+}
+
+void decreaseSpeed() {
+  motorSpeed -= 51; // Decrease speed by 20%
+  if (motorSpeed < 0) {
+    motorSpeed = 0; // Min speed
+  }
+  Serial.print("Motor speed decreased to ");
+  Serial.println(motorSpeed);
+}
+
+float getDistance() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  
+  float duration = pulseIn(echoPin, HIGH);
+  float distance = duration * 0.034 / 2;  // Speed of sound is 340 m/s, or 0.034 cm/microsecond
+  
+  return distance;
+}
+
+void loop() {
+  // Ultrasonic sensor distance check
+  float distance = getDistance();
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+  
+  if (distance < 15) {  // If obstacle is detected within 15 cm, stop the motors
+    stopMotors();
+    Serial.println("Obstacle detected. Stopping motors.");
+  }
+
+  // Bluetooth commands processing
+  if (BTSerial.available()) {  // Check if there's any data available on the Bluetooth serial port
+    char command = BTSerial.read();  // Read the incoming byte
+
+    // Print the received command to the Serial Monitor
+    Serial.print("Received command: ");
+    Serial.println(command);
+
+    // Process commands based on received characters
+    if (command == 'c') {
+      toggleClaw();  // Toggle claw servo position
+    } else if (command == 'q') {
+      stopMotors();  // Stop motors
+      Serial.println("Motors stopped.");
+    } else if (command == 'k') {
+      int newYawPosition = yawServo.read() + 20; // Increase the yaw position
+      if (newYawPosition > 180) {
+        newYawPosition = 180;
+      }
+      yawServo.write(newYawPosition);
+      Serial.print("Yaw servo moved to ");
+      Serial.println(newYawPosition);
+    } else if (command == 'h') {
+      int newYawPosition = yawServo.read() - 20; // Decrease the yaw position
+      if (newYawPosition < 0) {
+        newYawPosition = 0;
+      }
+      yawServo.write(newYawPosition);
+      Serial.print("Yaw servo moved to ");
+      Serial.println(newYawPosition);
+    } else if (command == 'j') {
+      int newBasePosition = baseServo.read() + 15; // Move base up
+      if (newBasePosition > 180) {
+        newBasePosition = 180;
+      }
+      baseServo.write(newBasePosition);
+      Serial.print("Base servo moved to ");
+      Serial.println(newBasePosition);
+    } else if (command == 'u') {
+      int newBasePosition = baseServo.read() - 15; // Move base down
+      if (newBasePosition < 0) {
+        newBasePosition = 0;
+      }
+      baseServo.write(newBasePosition);
+      Serial.print("Base servo moved to ");
+      Serial.println(newBasePosition);
+    } else if (command == 'i') {
+      int newWristPosition = wristServo.read() + 10; // Move wrist up
+      if (newWristPosition > 180) {
+        newWristPosition = 180;
+      }
+      wristServo.write(newWristPosition);
+      Serial.print("Wrist servo moved to ");
+      Serial.println(newWristPosition);
+    } else if (command == 'y') {
+      int newWristPosition = wristServo.read() - 10; // Move wrist down
+      if (newWristPosition < 0) {
+        newWristPosition = 0;
+      }
+      wristServo.write(newWristPosition);
+      Serial.print("Wrist servo moved to ");
+      Serial.println(newWristPosition);
+    } else if (command == 'w') { // Move forward
+      if (movingForward) {
+        stopMotors();
+        Serial.println("Motors stopped.");
+      } else {
+        moveForward();
+        Serial.println("Moving forward.");
+      }
+    } else if (command == 's') { // Move backward
+      if (movingBackward) {
+        stopMotors();
+        Serial.println("Motors stopped.");
+      } else {
+        moveBackward();
+        Serial.println("Moving backward.");
+      }
+    } else if (command == 'd') { // Move left
+      if (movingLeft) {
+        stopMotors();
+        Serial.println("Motors stopped.");
+      } else {
+        moveLeft();
+        Serial.println("Moving left.");
+      }
+    } else if (command == 'a') { // Move right
+      if (movingRight) {
+        stopMotors();
+        Serial.println("Motors stopped.");
+      } else {
+        moveRight();
+        Serial.println("Moving right.");
+      }
+    } else if (command == '1') { // Increase speed
+      increaseSpeed();
+    } else if (command == '2') { // Decrease speed
+      decreaseSpeed();
+    } else {
+      Serial.println("Unknown command.");
+    }
+  }
+}
+```
 
 # Third Milestone
 
