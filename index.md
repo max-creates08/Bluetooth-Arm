@@ -14,16 +14,18 @@
 
 # Final Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to YouTube, click Share -> Embed, and copy and paste the code to replace what's below.**
+
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_OPaVnnfovc?si=AyzpFt-mv50UnKPL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
+## Summary
 
+For my final milestone I added an ultrasonic sensor. This will allow the car to stop moving when it encounters something in front of it. Regardless of what direction it moving in. 
+
+## Challenges
+
+At times when the robot is moving the motor will work for 1-2 seconds and stop moving. After further troubleshotting i fugired out it is to do with the conectors for the ultrasonic sensor becoming loose; creating improper sensory data and making the robot belive there is something front of it. To fix this I choose pins that are less likely to become loose and added a breadboard.
 
 
 
