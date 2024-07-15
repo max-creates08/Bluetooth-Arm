@@ -35,7 +35,8 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ## Summary
 
-  For my third milestone, I added four-wheel drive to my robotic arm. Enabling the arm to travel in any setting. Furthermore, I tested the range to be up to 50+ feet with no obstructions, and the robot is all terrain (no water). I also added underflow to my robot to add an aesthetic look. The motor driver to control the motors is powered by 6 AA batteries and powers the underflow LEDs and the motors.
+  For my third milestone, I added four-wheel drive to my robotic arm. Enabling the arm to travel in any setting. Furthermore, I tested the range to be up to 50+ feet with no obstructions. Additionally, the robot is all-terrain (no water). I also added underglow to my robot to add an aesthetic look. The motor driver to control the motors is powered by 6 AA batteries and powers the underglow LEDs and the motors.
+  
 ## Complications 
 
   I had to alter my code to control the motors via Bluetooth significantly. Initially, I faced issues with maintaining the connection. I changed my pins for my motor's pins. I will add an ultrasonic sensor for partial crash detection for my final milestone.
