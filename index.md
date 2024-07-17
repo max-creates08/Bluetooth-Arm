@@ -57,7 +57,7 @@ const int trigPin = 13;
 const int echoPin = 12;
 
 // Create SoftwareSerial object for Bluetooth
-SoftwareSerial BTSerial(2, 3); // RX, TX
+SoftwareSerial BTSerial(0, 1); // RX, TX
 
 // Variable to track claw state
 bool clawOpen = false;
@@ -198,22 +198,22 @@ float getDistance() {
 void loop() {
   // Ultrasonic sensor distance check
   float distance = getDistance();
-  Serial.print("Distance: ");
-  Serial.print(distance);
-  Serial.println(" cm");
   
-  if (distance < 15) {  // If obstacle is detected within 15 cm, stop the motors
+  
+  if (distance < 20 && movingForward == true) {  // If obstacle is detected within 15 cm, stop the motors
     stopMotors();
-    Serial.println("Obstacle detected. Stopping motors.");
+    Serial.print("Obstacle detected. Stopping motors. ");
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" cm");
   }
+
 
   // Bluetooth commands processing
   if (BTSerial.available()) {  // Check if there's any data available on the Bluetooth serial port
     char command = BTSerial.read();  // Read the incoming byte
 
-    // Print the received command to the Serial Monitor
-    Serial.print("Received command: ");
-    Serial.println(command);
+
 
     // Process commands based on received characters
     if (command == 'c') {
@@ -305,9 +305,7 @@ void loop() {
       increaseSpeed();
     } else if (command == '2') { // Decrease speed
       decreaseSpeed();
-    } else {
-      Serial.println("Unknown command.");
-    }
+    } 
   }
 }
 ```
