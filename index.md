@@ -8,7 +8,9 @@
 <img src="Maksim R (1).jpg" alt="Headstone Image" width="300">
 
  
-
+| **Engineer** | **School** | **Area of Interest** | **Grade** |
+|:--:|:--:|:--:|:--:|
+| Maksim R | Pinnacle High School | Mechanical Engineering | Rising Junior
 
 # Final Milestone
 
