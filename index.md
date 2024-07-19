@@ -1,9 +1,7 @@
 # Robotic Car Arm Controlled by iPhone
 
 
-| **Engineer** | **School** | **Area of Interest** | **Grade** |
-|:--:|:--:|:--:|:--:|
-| Maksim R | Pinnacle High School | Mechanical Engineering | Rising Junior
+
 
 
 
