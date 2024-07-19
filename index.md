@@ -18,11 +18,11 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PaCDFoY7rtU?si=z1MUqAOEMWFFUH75" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Summary 
-I added a back ultrasonic sensor to avoid collisions while moving backward. Furthermore, I added obstacle avoidance when the robot moves forward. Furthermore, another software feature I added is that the robot sends feedback via the Bluetooth terminal to let the user know what a given distance is around an object.
+I added a back ultrasonic sensor to avoid collisions while moving backward, ensuring safe maneuverability. Additionally, I incorporated obstacle avoidance when the robot moves forward, enhancing its autonomous navigation capabilities. To further improve user experience and control, the robot now sends feedback via the Bluetooth terminal, informing the user about the distance from nearby objects in real-time.
 
 ## Challenges
 
-To add obstacle avoidance, there was a challenge for how long the robot needed to rotate to move around an obstacle. I fixed this issue by adding more steps to ensure the robot's correct rotation.
+Integrating obstacle avoidance presented several challenges. One significant issue was determining the optimal rotation duration for the robot to successfully navigate around an obstacle without hitting it. To resolve this, I implemented additional steps in the robot's movement algorithm, which ensured accurate and efficient rotation. This adjustment helped the robot maintain a clear path and avoid obstacles effectively, enhancing its overall functionality and reliability.
 
 ## Code
 ```c++
@@ -436,12 +436,13 @@ if (distance >= 1 && distance <= 25 && movingForward) {
 
 ## Summary
 
-For my final milestone, I added an ultrasonic sensor. This will allow the car to stop moving when it encounters something in front of it. Regardless of what direction it moving in. 
+I added an ultrasonic sensor to the robotic car for my final milestone. This enhancement allows the car to automatically stop whenever it encounters an obstacle in its path, regardless of the direction it is moving in. This feature significantly improves the car's ability to prevent collisions autonomously.
+
+
 
 ## Challenges
 
-At times when the robot is moving the motor will work for 1-2 seconds and stop moving. After further troubleshotting i fugired out it is to do with the conectors for the ultrasonic sensor becoming loose; creating improper sensory data and making the robot belive there is something front of it. To fix this I choose pins that are less likely to become loose and added a breadboard.
-
+A recurring issue was the robot's motor intermittently stopping after 1-2 seconds of movement. After thorough troubleshooting, I discovered the problem stemmed from loose connectors on the ultrasonic sensor. These loose connections resulted in improper sensory data, erroneously causing the robot to perceive obstacles in its path. To address this, I opted for more secure pins that were less likely to become loose and added a breadboard to ensure stable connections. This solution effectively resolved the issue, ensuring reliable obstacle detection and uninterrupted movement.
 ## Code
 ```c++
 #include <Servo.h>
