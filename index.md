@@ -736,7 +736,7 @@ void loop(){
 | HM-10 | Bluethooth Chip | $12 | <a href="https://a.co/d/0jb6O9Ao"> Link </a> |
 | 2x L298n | Motor Driver | $7 | <a href="https://a.co/d/0T7SKFO"> Link </a> |
 | RED LED | Lights | $16 | <a href="https://a.co/d/5lpHaMW"> Link </a> |
-| UltraSonic Sensor | Measures Distance | $7 | <a href="https://a.co/d/euodlKd"> Link </a> |
+| 2x UltraSonic Sensor | Measures Distance | $7 | <a href="https://a.co/d/euodlKd"> Link </a> |
 
 
 <!-- 
